@@ -1,4 +1,3 @@
-# Inserte el codigo de sus clases aqui
 class Matrix:
     def __init__(self,lists) ->  list:
         self.lists=lists
@@ -57,22 +56,23 @@ class Vector(Matrix):
         elif self.is_row() and new_vector.is_row():
             return sum(self.get_element(1,i+1)*new_vector.get_element(1,i+1) for i in range(self.size()[0]))
         else: return []
+            
+if __name__ == "__main__":    
+    mat_A = Matrix([[2.0, 5.0, 1.0], [-8.0, 3.0, 2.0]])
+    mat_B = Matrix([[4.0, 2.0], [1.0, 7.0], [3.0, 2.0]])
+    mat_C = Matrix([[1.0, 0.0], [0.0, 1.0]])
+    resultado_AB = mat_A.multiply(mat_B)
+    resultado_AC = mat_A.multiply(mat_C)
     
-mat_A = Matrix([[2.0, 5.0, 1.0], [-8.0, 3.0, 2.0]])
-mat_B = Matrix([[4.0, 2.0], [1.0, 7.0], [3.0, 2.0]])
-mat_C = Matrix([[1.0, 0.0], [0.0, 1.0]])
-resultado_AB = mat_A.multiply(mat_B)
-resultado_AC = mat_A.multiply(mat_C)
-
-print(resultado_AB)
-print(resultado_AC)
-
-vec_A = Vector([[1.0], [2.0], [5.0]])
-vec_B = Vector([[3.0, 2.0, 1.0]])
-vec_C = Vector([[1.0, 0.0, 0.0]])
-resultado_A = vec_A.multiply(vec_A) 
-resultado_BC = vec_B.add(vec_C)
-print(resultado_A)
-print(vec_A.norm())
-print(resultado_BC)
-mat_A.pretty_print()
+    print(resultado_AB)
+    print(resultado_AC)
+    
+    vec_A = Vector([[1.0], [2.0], [5.0]])
+    vec_B = Vector([[3.0, 2.0, 1.0]])
+    vec_C = Vector([[1.0, 0.0, 0.0]])
+    resultado_A = vec_A.multiply(vec_A) 
+    resultado_BC = vec_B.add(vec_C)
+    print(resultado_A)
+    print(vec_A.norm())
+    print(resultado_BC)
+    mat_A.pretty_print()
